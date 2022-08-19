@@ -38,4 +38,6 @@
   .slide-down:focus + .slide-down-item {
     height: auto;
 }
+
+
 @tailwind utilities;
