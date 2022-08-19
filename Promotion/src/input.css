@@ -18,4 +18,26 @@
 .dropdown:hover .dropdown-item {
     display: block;
 }
+/* Toggle A */
+.switch input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+  }
+  
+  /* Toggle B */
+.switch input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #48bb78;
+  }
+ .slide-down-item {
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: all .3s ease-in;
+  }
+  .slide-down:focus + .slide-down-item {
+    height: auto;
+}
+
+
 @tailwind utilities;
