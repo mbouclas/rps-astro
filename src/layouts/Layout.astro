@@ -1,4 +1,5 @@
 ---
+import categories from '../data/categories';
 export interface Props {
 	title: string;
 }
@@ -45,7 +46,7 @@ const { title } = Astro.props;
 
         
          <div class="logo">
-            <img src="./images/logo.png" alt="" class="h-24 -ml-5 w-40" srcset="">
+            <img src="../../../images/logo.png" alt="" class="h-24 -ml-5 w-40" srcset="">
          </div>
 
          <div class="flex-grow">
@@ -134,130 +135,33 @@ const { title } = Astro.props;
  <nav class="w-full py-4">
     <div class="container mx-auto px-4 lg:px-20">
     <ul class="w-full flex items-center text-sm 2xl:text-base border-b">
-           <li class=" hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu" tabindex="1">
-            <a href="">All Categories</a>
-
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Clothing</a>
-            <div class="fixed top-auto w-full megamenu h-64 bg-white mt-5 left-0 z-50 text-black">
+        {categories.map((item) => {
+            return (
+            <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
+            <a href="">{item.name}</a>
+           { (item.subcategories && item.subcategories.length > 0) && ( <div class="fixed top-auto w-full megamenu h-64 bg-white mt-5 left-0 z-50 text-black">
                 <div class="container mx-auto px-4 lg:px-20 py-4">
                     <div class="grid grid-cols-1 lg:grid-cols-6">
                     
                       <!-- START ITEM       -->
-                     <div class="">
-                        <h4 class="font-medium mb-4 ">Shirts & Tops</h4>
-                       <ul class="flex flex-col gap-4 text-sm">
-                        <li>
-                            <a href="#" class="hover:text-primary">T-shirts</a>
-                        </li>
-                        <li>
-                            <a href="#">Polo shirts</a>
-                        </li>
-                        <li>
-                            <a href="#">Dress Shirts</a>
-                        </li>
-                        <li>
-                            <a href="#">Tank Tops
-                            </a>
-                        </li>
-                       </ul>
-                     </div>
+            {item.subcategories.map(subitem =>( <div class="">
+                        <h4 class="font-medium mb-4 ">{subitem.name}</h4>
+                       {(subitem.subitems && subitem.subitems.length > 0 ) && (<ul class="flex flex-col gap-4 text-sm">
+                        {subitem.subitems.map((subsubitem) =>(<li>
+                            <a href="#" class="hover:text-primary">{subsubitem.name}</a>
+                        </li>))}
+    
+                       </ul>)}
+                     </div>))}
                         <!-- END ITEM -->
 
-                                          <!-- START ITEM       -->
-                                          <div class="">
-                                            <h4 class="font-medium mb-4 ">Outer wear</h4>
-                                           <ul class="flex flex-col gap-4 text-sm">
-                                            <li>
-                                                <a href="#" class="hover:text-primary">T-shirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Polo shirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Dress Shirts</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Tank Tops
-                                                </a>
-                                            </li>
-                                           </ul>
-                                         </div>
-                                            <!-- END ITEM -->
-
-                                                  <!-- START ITEM       -->
-                     <div class="">
-                        <h4 class="font-medium mb-4 ">Hats</h4>
-                       <ul class="flex flex-col gap-4 text-sm">
-                        <li>
-                            <a href="#" class="hover:text-primary">T-shirts</a>
-                        </li>
-                        <li>
-                            <a href="#">Polo shirts</a>
-                        </li>
-                        <li>
-                            <a href="#">Dress Shirts</a>
-                        </li>
-                        <li>
-                            <a href="#">Tank Tops
-                            </a>
-                        </li>
-                       </ul>
-                     </div>
-                        <!-- END ITEM -->
-
-                                      <!-- START ITEM       -->
-                                      <div class="">
-                                        <h4 class="font-medium mb-4 ">Other Clothing</h4>
-                                       <ul class="flex flex-col gap-4 text-sm">
-                                        <li>
-                                            <a href="#" class="hover:text-primary">T-shirts</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Polo shirts</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Dress Shirts</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Tank Tops
-                                            </a>
-                                        </li>
-                                       </ul>
-                                     </div>
-                                        <!-- END ITEM -->
+                                         
                     </div>
                 </div>
-            </div>
+            </div>)}
            </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Bags</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Drinkware</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Writing & Office</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Technology</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">HouseHold & Auto</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Sports & Leisure</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Treats</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Deals</a>
-           </li>
-           <li class="hover:text-gray-500  hover:border-b hover:border-primary flex-grow whitespace-nowrap py-3 px-2 list-menu">
-            <a href="">Collections</a>
-           </li>
+            )
+        })} 
     </ul>
     </div>
  </nav>
